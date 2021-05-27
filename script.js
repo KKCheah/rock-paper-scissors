@@ -39,3 +39,41 @@ function playOneRound(){
         }
 
 }
+
+//function that plays a single round of Rock Paper Scissors using switch 
+function playOneRoundinSwitch(){
+    computerSelectionCaseSensitive = computerPlay();
+    playerSelectionCaseSensitive = prompt("Please insert rock, paper or scissors");
+    let computerSelection = computerSelectionCaseSensitive.toUpperCase();
+    let playerSelection = playerSelectionCaseSensitive.toUpperCase();
+
+    switch (computerSelection){
+        case "SCISSORS":
+            if (playerSelection === "SCISSORS"){
+                console.log("Its a draw, player choose: " + playerSelection + " while computer choose: " + computerSelection)
+            } else if (playerSelection === "PAPER"){
+            console.log("Computer won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
+            } else if (playerSelection === "ROCK"){
+            console.log("Player won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
+            }
+        break;
+
+        case "PAPER":
+            if (playerSelection === "PAPER"){
+                console.log("Its a draw, player choose: " + playerSelection + " while computer choose: " + computerSelection)
+            } else if (playerSelection === "ROCK"){
+            console.log("Computer won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
+            } else if (playerSelection === "SCISSORS"){
+            console.log("Player won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
+            }
+        break;
+
+        case "ROCK":
+            if (playerSelection === "ROCK"){
+                console.log("Its a draw, player choose: " + playerSelection + " while computer choose: " + computerSelection)
+            } else if (playerSelection === "SCISSORS"){
+            console.log("Computer won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
+            } else if (playerSelection === "PAPER"){
+            console.log("Player won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
+            }
+    }}
