@@ -77,3 +77,45 @@ function playOneRoundinSwitch(){
             console.log("Player won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
             }
     }}
+
+
+    //function that plays a single round with more optimized use of switch and if..else (credits to mokwangquan)
+    function playOneRoundOptimize(){
+        
+            computerSelectionCaseSensitive = computerPlay();
+            playerSelectionCaseSensitive = prompt("Please insert rock, paper or scissors");
+            let computerSelection = computerSelectionCaseSensitive.toUpperCase();
+            let playerSelection = playerSelectionCaseSensitive.toUpperCase();
+
+            if (computerSelection === playerSelection){
+                console.log("Its a draw, player choose: " + playerSelection + " while computer choose: " + computerSelection)
+            } else {
+                switch (computerSelection){
+                    case "SCISSORS":
+                        if (playerSelection === "PAPER"){
+                        console.log("Computer won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
+                        } else if (playerSelection === "ROCK"){
+                        console.log("Player won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
+                        }
+                    break;
+            
+                    case "PAPER":
+                        if (playerSelection === "ROCK"){
+                        console.log("Computer won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
+                        } else if (playerSelection === "SCISSORS"){
+                        console.log("Player won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
+                        }
+                    break;
+            
+                    case "ROCK":
+                        if (playerSelection === "SCISSORS"){
+                        console.log("Computer won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
+                        } else if (playerSelection === "PAPER"){
+                        console.log("Player won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
+                        }
+                    default:
+                        alert("incorrect entry, please try again");
+                        playOneRoundOptimize();
+                }
+            }
+    }
