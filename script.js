@@ -87,35 +87,38 @@ function playOneRoundinSwitch(){
             let computerSelection = computerSelectionCaseSensitive.toUpperCase();
             let playerSelection = playerSelectionCaseSensitive.toUpperCase();
 
+            console.log("player wrote: " + playerSelection);
+            console.log("computer choose: " + computerSelection);
+
             if (computerSelection === playerSelection){
                 console.log("Its a draw, player choose: " + playerSelection + " while computer choose: " + computerSelection)
-            } else {
-                switch (computerSelection){
+            } else if (computerSelection !== playerSelection){
+                switch (playerSelection){
                     case "SCISSORS":
-                        if (playerSelection === "PAPER"){
-                        console.log("Computer won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
-                        } else if (playerSelection === "ROCK"){
+                        if (computerSelection === "PAPER"){
                         console.log("Player won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
+                        } else if (computerSelection === "ROCK"){
+                        console.log("Computer won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
                         }
                     break;
-            
                     case "PAPER":
-                        if (playerSelection === "ROCK"){
-                        console.log("Computer won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
-                        } else if (playerSelection === "SCISSORS"){
+                        if (computerSelection === "ROCK"){
                         console.log("Player won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
+                        } else if (computerSelection === "SCISSORS"){
+                        console.log("Computer won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
                         }
                     break;
-            
                     case "ROCK":
-                        if (playerSelection === "SCISSORS"){
-                        console.log("Computer won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
-                        } else if (playerSelection === "PAPER"){
+                        if (computerSelection === "SCISSORS"){
                         console.log("Player won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
+                        } else if (computerSelection === "PAPER"){
+                        console.log("Computer won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
                         }
-                    default:
-                        alert("incorrect entry, please try again");
-                        playOneRoundOptimize();
+                    default: 
+                    alert("Somehow you ended up here, wrong data entry");
+                    playOneRoundOptimize();
                 }
+
+                } 
             }
-    }
+
