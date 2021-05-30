@@ -78,10 +78,12 @@ function playOneRoundinSwitch(){
             }
     }}
 
-
+    
     //function that plays a single round with more optimized use of switch and if..else (credits to mokwangquan)
     function playOneRoundOptimize(){
-        
+            
+
+
             computerSelectionCaseSensitive = computerPlay();
             playerSelectionCaseSensitive = prompt("Please insert rock, paper or scissors");
             let computerSelection = computerSelectionCaseSensitive.toUpperCase();
@@ -97,28 +99,56 @@ function playOneRoundinSwitch(){
                     case "SCISSORS":
                         if (computerSelection === "PAPER"){
                         console.log("Player won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
+                        playerWin++
                         } else if (computerSelection === "ROCK"){
                         console.log("Computer won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
+                        computerWin++
                         }
                     break;
                     case "PAPER":
                         if (computerSelection === "ROCK"){
                         console.log("Player won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
+                        playerWin++
                         } else if (computerSelection === "SCISSORS"){
                         console.log("Computer won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
+                        computerWin++
                         }
                     break;
                     case "ROCK":
                         if (computerSelection === "SCISSORS"){
                         console.log("Player won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
+                        playerWin++
                         } else if (computerSelection === "PAPER"){
                         console.log("Computer won!, player choose: " + playerSelection + " while computer choose: " + computerSelection)
+                        computerWin++
                         }
+                    break;
                     default: 
                     alert("Somehow you ended up here, wrong data entry");
                     playOneRoundOptimize();
                 }
-
                 } 
+             
+                console.log("TEST" + computerWin + " " + playerWin)
+                return computerWin, playerWin
             }
+    //write a new function called game
+    let computerWin = 0; 
+    let playerWin = 0;
+    function game(){
+        
+        while (computerWin < 5 && playerWin < 5){
+        playOneRoundOptimize()
+        console.log("the counter for computer is " + computerWin + "while the counter for player win is " + playerWin);
+        if (computerWin == 5){
+            console.log("The computer has won with a score of: " + computerWin + " against the player who only won: " + playerWin)
+            console.log("Skynet conquers humanity =(")
+        }
+        else if (playerWin == 5){
+            console.log("The player has won with a score of: " + playerWin + " against the computer who only won: " +  computerWin)
+            console.log("Human Victorious")
+        }
+    }
 
+    
+    }
