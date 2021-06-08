@@ -80,12 +80,12 @@ function playOneRoundinSwitch(){
 
     
     //function that plays a single round with more optimized use of switch and if..else (credits to mokwangquan)
-    function playOneRoundOptimize(){
+    function playOneRoundOptimize(userInput){
             
 
 
             computerSelectionCaseSensitive = computerPlay();
-            playerSelectionCaseSensitive = prompt("Please insert rock, paper or scissors");
+            playerSelectionCaseSensitive = userInput;
             let computerSelection = computerSelectionCaseSensitive.toUpperCase();
             let playerSelection = playerSelectionCaseSensitive.toUpperCase();
 
@@ -132,8 +132,35 @@ function playOneRoundinSwitch(){
                 console.log("TEST" + computerWin + " " + playerWin)
                 return computerWin, playerWin
             }
+    
+    let rockButton = document.querySelector('#rockButton');
+    rockButton.addEventListener('dblclick', function(e){
+        console.log(e);
+        playOneRoundOptimize('rock');
+    });
+    
+    let paperButton = document.querySelector('#paperButton');
+    paperButton.addEventListener('dblclick', function(e){
+        console.log(e);
+        playOneRoundOptimize('paper');
+    });
+    
+    let scissorsButton = document.querySelector('#scissorsButton');
+    scissorsButton.addEventListener('dblclick', function(e){
+        console.log(e);
+        playOneRoundOptimize('scissors');
+    });
+    
+    
+    
+
+
+
     //write a new function called game
-    let computerWin = 0; 
+    //Removed to allow UI implementation
+
+    
+    /*let computerWin = 0; 
     let playerWin = 0;
     function game(){
         
@@ -152,3 +179,4 @@ function playOneRoundinSwitch(){
 
     
     }
+    */

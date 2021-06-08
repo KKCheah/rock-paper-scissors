@@ -5,3 +5,5 @@ This is my baby steps for the future
 Want to relearn git as I've not touched it for a month. Looking to see how "git status" will change after staging it and changing the README.md contents
 
 Will see how things go and try to optimize the process by starting to thread more on projects to kickstart my portfolio. Attempt to commit and push this update to my GitHub account and repository.
+
+8/6/2021 - Attempt to give it a UI based on player playing the game by clicking on buttons rather than typing their answer in a prompt.
