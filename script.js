@@ -6,6 +6,10 @@ function computerPlay(){
     return computerSelection
 }
 
+let computerWin = 0; 
+let playerWin = 0;
+
+
 function playerPlay(){}
 
 //function that plays a single round of Rock Paper Scissors
@@ -137,24 +141,58 @@ function playOneRoundinSwitch(){
     rockButton.addEventListener('dblclick', function(e){
         console.log(e);
         playOneRoundOptimize('rock');
+        checkScore()
+        displayScore()
     });
     
     let paperButton = document.querySelector('#paperButton');
     paperButton.addEventListener('dblclick', function(e){
         console.log(e);
         playOneRoundOptimize('paper');
+        checkScore()
+        displayScore()
     });
     
     let scissorsButton = document.querySelector('#scissorsButton');
     scissorsButton.addEventListener('dblclick', function(e){
         console.log(e);
         playOneRoundOptimize('scissors');
+        checkScore()
+        displayScore()
     });
     
+    function displayScore(){
+    const scoreContainer = document.querySelector('#scoreDisplay')
+    const scoreBoard = document.querySelector('#scoreDisplay')
+    scoreBoard.classList.add('content')
+    scoreBoard.textContent = `Computer Selected: ${computerSelection} Computer Score is ${computerWin}" while Player Score is "${playerWin} Player Selected: ${playerSelection} `;
+    scoreContainer.appendChild(scoreBoard);
+    }
+    function checkScore(){
     
+    if (computerWin == 5){
+       
+        scoreBoard.classList.add('computerWin');
+        scoreBoard.textContent = `The computer has won with a score of: "${computerWin} + " against the player who only won: " + ${playerWin} + "Skynet conquers humanity =(`
+        scoreBoard.appendChild(computerWin);
+        console.log("The computer has won with a score of: " + computerWin + " against the player who only won: " + playerWin)
+        console.log("Skynet conquers humanity =(")
+        
+    }
+    else if (playerWin == 5){
+        
+        scoreBoard.classList.add('humanWin');
+        scoreBoard.textContent = `The player has won with a score of: " + ${playerWin} + " against the computer who only won: " +  ${computerWin} + "Human Victorious`;
+        scoreBoard.appendChild(humanWin);
+        console.log("The player has won with a score of: " + playerWin + " against the computer who only won: " +  computerWin)
+        console.log("Human Victorious")
+    }
+
     
+    }
 
-
+   
+    
 
     //write a new function called game
     //Removed to allow UI implementation
