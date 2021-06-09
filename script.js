@@ -82,7 +82,9 @@ function playOneRoundinSwitch(){
             }
     }}
 
-    
+   
+
+
     //function that plays a single round with more optimized use of switch and if..else (credits to mokwangquan)
     function playOneRoundOptimize(userInput){
             
@@ -131,18 +133,20 @@ function playOneRoundinSwitch(){
                     alert("Somehow you ended up here, wrong data entry");
                     playOneRoundOptimize();
                 }
+                
                 } 
-             
-                console.log("TEST" + computerWin + " " + playerWin)
-                return computerWin, playerWin
+                
+                console.log("TEST" + computerWin + " " + playerWin + computerSelection);
+                displayScore(computerSelection, playerSelection);
+                displayEndResult(computerWin, playerWin);
             }
     
     let rockButton = document.querySelector('#rockButton');
     rockButton.addEventListener('dblclick', function(e){
         console.log(e);
         playOneRoundOptimize('rock');
+        
         checkScore()
-        displayScore()
     });
     
     let paperButton = document.querySelector('#paperButton');
@@ -150,7 +154,6 @@ function playOneRoundinSwitch(){
         console.log(e);
         playOneRoundOptimize('paper');
         checkScore()
-        displayScore()
     });
     
     let scissorsButton = document.querySelector('#scissorsButton');
@@ -158,32 +161,35 @@ function playOneRoundinSwitch(){
         console.log(e);
         playOneRoundOptimize('scissors');
         checkScore()
-        displayScore()
     });
     
-    function displayScore(){
+    function displayScore(computerSelection,playerSelection){
     const scoreContainer = document.querySelector('#scoreDisplay')
-    const scoreBoard = document.querySelector('#scoreDisplay')
-    scoreBoard.classList.add('content')
-    scoreBoard.textContent = `Computer Selected: ${computerSelection} Computer Score is ${computerWin}" while Player Score is "${playerWin} Player Selected: ${playerSelection} `;
-    scoreContainer.appendChild(scoreBoard);
+    const scoreBoardContent = document.createElement('div')
+    scoreBoardContent.classList.add('content')
+    scoreBoardContent.textContent = `Computer Selected: ${computerSelection} Computer Score is ${computerWin}" while Player Score is "${playerWin} Player Selected: ${playerSelection} `;
+    scoreContainer.appendChild(scoreBoardContent);
     }
-    function checkScore(){
+    function displayEndResult(){
     
     if (computerWin == 5){
-       
-        scoreBoard.classList.add('computerWin');
-        scoreBoard.textContent = `The computer has won with a score of: "${computerWin} + " against the player who only won: " + ${playerWin} + "Skynet conquers humanity =(`
-        scoreBoard.appendChild(computerWin);
+        const resultContainer = document.querySelector('#selectionDisplay')
+        const result = document.createElement('div')
+        result.classList.add('content')
+        result.classList.add('computerWin');
+        result.textContent = `The computer has won with a score of: "${computerWin} + " against the player who only won: " + ${playerWin} + "Skynet conquers humanity =(`
+        resultContainer.appendChild(result);
         console.log("The computer has won with a score of: " + computerWin + " against the player who only won: " + playerWin)
         console.log("Skynet conquers humanity =(")
         
     }
     else if (playerWin == 5){
-        
-        scoreBoard.classList.add('humanWin');
-        scoreBoard.textContent = `The player has won with a score of: " + ${playerWin} + " against the computer who only won: " +  ${computerWin} + "Human Victorious`;
-        scoreBoard.appendChild(humanWin);
+        const resultContainer = document.querySelector('#selectionDisplay')
+        const result = document.createElement('div')
+        result.classList.add('content')
+        result.classList.add('humanWin');
+        result.textContent = `The player has won with a score of: " + ${playerWin} + " against the computer who only won: " +  ${computerWin} + "Human Victorious`;
+        resultContainer.appendChild(result);
         console.log("The player has won with a score of: " + playerWin + " against the computer who only won: " +  computerWin)
         console.log("Human Victorious")
     }
@@ -191,7 +197,7 @@ function playOneRoundinSwitch(){
     
     }
 
-   
+    
     
 
     //write a new function called game
