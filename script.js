@@ -99,6 +99,11 @@ function playOneRoundinSwitch(){
             console.log("computer choose: " + computerSelection);
 
             if (computerSelection === playerSelection){
+                const scoreContainer = document.querySelector('#scoreDisplay')
+                const draw = document.createElement('div')
+                draw.classList.add('content')
+                draw.textContent = `It is a Draw; Computer Selected: ${computerSelection} Computer Score is ${computerWin} while Player Score is ${playerWin} Player Selected: ${playerSelection} `;
+                scoreContainer.appendChild(draw);
                 console.log("Its a draw, player choose: " + playerSelection + " while computer choose: " + computerSelection)
             } else if (computerSelection !== playerSelection){
                 switch (playerSelection){
@@ -146,50 +151,54 @@ function playOneRoundinSwitch(){
         console.log(e);
         playOneRoundOptimize('rock');
         
-        checkScore()
+        //checkScore()
     });
     
     let paperButton = document.querySelector('#paperButton');
     paperButton.addEventListener('dblclick', function(e){
         console.log(e);
         playOneRoundOptimize('paper');
-        checkScore()
+        //checkScore()
     });
     
     let scissorsButton = document.querySelector('#scissorsButton');
     scissorsButton.addEventListener('dblclick', function(e){
         console.log(e);
         playOneRoundOptimize('scissors');
-        checkScore()
+        //checkScore()
     });
     
     function displayScore(computerSelection,playerSelection){
+
     const scoreContainer = document.querySelector('#scoreDisplay')
     const scoreBoardContent = document.createElement('div')
     scoreBoardContent.classList.add('content')
-    scoreBoardContent.textContent = `Computer Selected: ${computerSelection} Computer Score is ${computerWin}" while Player Score is "${playerWin} Player Selected: ${playerSelection} `;
+    scoreBoardContent.textContent = `Computer Selected: ${computerSelection} Computer Score is ${computerWin} while Player Score is ${playerWin} Player Selected: ${playerSelection} `;
     scoreContainer.appendChild(scoreBoardContent);
     }
+
     function displayEndResult(){
     
     if (computerWin == 5){
-        const resultContainer = document.querySelector('#selectionDisplay')
+        const scoreContainer = document.querySelector('#scoreDisplay')
+        //const resultContainer = document.querySelector('#selectionDisplay')
         const result = document.createElement('div')
         result.classList.add('content')
         result.classList.add('computerWin');
-        result.textContent = `The computer has won with a score of: "${computerWin} + " against the player who only won: " + ${playerWin} + "Skynet conquers humanity =(`
-        resultContainer.appendChild(result);
+        result.textContent = `The computer has won with a score of: ${computerWin}   against the player who only won:   ${playerWin}  Skynet conquers humanity =(`
+        scoreContainer.appendChild(result);
         console.log("The computer has won with a score of: " + computerWin + " against the player who only won: " + playerWin)
         console.log("Skynet conquers humanity =(")
         
     }
     else if (playerWin == 5){
-        const resultContainer = document.querySelector('#selectionDisplay')
+        const scoreContainer = document.querySelector('#scoreDisplay')
+        //const resultContainer = document.querySelector('#selectionDisplay')
         const result = document.createElement('div')
         result.classList.add('content')
         result.classList.add('humanWin');
-        result.textContent = `The player has won with a score of: " + ${playerWin} + " against the computer who only won: " +  ${computerWin} + "Human Victorious`;
-        resultContainer.appendChild(result);
+        result.textContent = `The player has won with a score of:   ${playerWin}   against the computer who only won:   ${computerWin}  Human Victorious`;
+        scoreContainer.appendChild(result);
         console.log("The player has won with a score of: " + playerWin + " against the computer who only won: " +  computerWin)
         console.log("Human Victorious")
     }
